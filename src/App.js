@@ -1,28 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Page from './components/page/page.js';
+
+
 
 class App extends Component {
+
+async fetchAsync () {
+  const response = await fetch('https://reqres.in/api/users?page=2');
+  return await response.json();
+}
+
+
+
+
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Page />
       </div>
     );
   }
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
